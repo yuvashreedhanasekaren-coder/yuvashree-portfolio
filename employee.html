@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Work Showcase</title>
+  <style>*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: system-ui, sans-serif;
+}
+body{
+  background:#0b1120;
+  color:#e5e7eb;
+  min-height:100vh;
+}
+.gallery-wrapper{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:60px 20px;
+}
+.back-link{
+  align-self:flex-start;
+  margin-bottom:30px;
+  color:#38bdf8;
+  text-decoration:none;
+  font-size:0.95rem;
+}
+.back-link:hover{
+  text-decoration:underline;
+}
+.gallery-card{
+  display:flex;
+  gap:60px;
+  max-width:1100px;
+  width:100%;
+  padding:50px;
+  border-radius:26px;
+  background:rgba(255,255,255,0.06);
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(99,102,241,0.4);
+  box-shadow:0 40px 90px rgba(0,0,0,.6);
+}
+.image-box{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.image-box img{
+  max-width:100%;
+  max-height:420px;
+  object-fit:contain;   /* 🔥 NO CROP */
+  border-radius:18px;
+}
+.content-box{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.content-box h2{
+  font-size:2rem;
+  margin-bottom:20px;
+  color:#38bdf8;
+}
+.content-box p{
+  font-size:1.05rem;
+  line-height:1.8;
+  color:#cbd5f5;
+  margin-bottom:35px;
+}
+.nav-buttons{
+  display:flex;
+  gap:20px;
+}
+.nav-buttons button{
+  padding:10px 26px;
+  border-radius:30px;
+  border:1px solid #38bdf8;
+  background:transparent;
+  color:#38bdf8;
+  cursor:pointer;
+  transition:.3s;
+}
+.nav-buttons button:hover{
+  background:#38bdf8;
+  color:#020617;
+  box-shadow:0 0 20px rgba(56,189,248,.6);
+}
+@media(max-width:900px){
+  .gallery-card{
+    flex-direction:column;
+    text-align:center;
+  }
+  .image-box img{
+    max-height:300px;
+  }
+}
+</style>
+</head>
+<body>
+  <div class="gallery-wrapper">
+    <a href="index.html#projects" class="back-link">← BACK</a>
+
+    <div class="gallery-card">
+      <div class="image-box">
+        <img id="workImage" src="assets/projects/layout1.jpeg" alt="Project Design">
+      </div>
+
+      <div class="content-box">
+        <h2 id="workTitle">Employee Management System | Django</h2>
+        <p id="workDesc">
+         🗄️Developed a Django-based Employee Management System to efficiently manage employee records. <br>
+      🗄️The application allows users to add, view, search, edit, and delete employee details, 
+      including profile image uploads. <br>🗄️Implemented database integration, form handling, CRUD operations, 
+      and dynamic templates to ensure smooth data management with a user-friendly interface.
+    <br>
+      <strong>Technologies:</strong> Python, Django, SQLite, HTML, CSS
+    </p>
+        <div class="nav-buttons">
+          <button onclick="prevImage()">‹</button>
+          <button onclick="nextImage()">›</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  /* ✅ Multiple images – single project note */
+  const images = [
+    "assets/projects/employee1.png",
+    "assets/projects/employee2.png",
+    "assets/projects/employee3.png",
+    "assets/projects/employee4.png"
+  ];
+
+  let current = 0;
+  const imgEl = document.getElementById("workImage");
+
+  function loadImage() {
+    imgEl.src = images[current];
+  }
+
+  function nextImage() {
+    current = (current + 1) % images.length;
+    loadImage();
+  }
+
+  function prevImage() {
+    current = (current - 1 + images.length) % images.length;
+    loadImage();
+  }
+
+  loadImage();
+</script>
+
+</body>
+</html>

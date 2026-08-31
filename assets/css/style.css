@@ -378,17 +378,22 @@ body.light .navbar{
     font-size: 1rem;
   }
 }
-/* ===========EDUCATION SECTION==================== */
-.education-container{
+/* =========== EDUCATION SECTION ==================== */
+.education-container {
   max-width: 1100px;
   margin: 60px auto 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
+  align-items: stretch;
 }
-.edu-card{
+.edu-card {
   position: relative;
   padding: 35px 30px;
+  min-height: 270px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
   border-radius: 24px;
   background: linear-gradient(
     145deg,
@@ -402,11 +407,11 @@ body.light .navbar{
     0 25px 60px rgba(0,0,0,0.35);
   transition: all 0.4s ease;
 }
-.edu-card:hover{
+.edu-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 0 30px rgba(59,130,246,0.6);
 }
-.edu-year{
+.edu-year {
   position: absolute;
   top: -16px;
   left: 30px;
@@ -417,25 +422,28 @@ body.light .navbar{
   font-size: 0.85rem;
   font-weight: 600;
 }
-.edu-card h3{
-  margin-top: 20px;
+.edu-card h3 {
+  margin: 20px 0 0;
   font-size: 1.2rem;
   color: #e5e7eb;
+  line-height: 1.35;
 }
-.edu-score{
-  margin: 12px 0;
+.edu-score {
+  margin: 12px 0 0;
   font-weight: 600;
   color: #c7d2fe;
 }
-.edu-score span{
+.edu-score span {
   color: #60a5fa;
 }
-.edu-desc{
+.edu-desc {
+  margin-top: 14px;
   font-size: 0.95rem;
   line-height: 1.7;
   color: #cbd5f5;
 }
-body.light .edu-card{
+/* =========== LIGHT MODE ==================== */
+body.light .edu-card {
   background: linear-gradient(
     145deg,
     #ffffff,
@@ -444,10 +452,10 @@ body.light .edu-card{
   border: 1px solid #93c5fd;
 }
 body.light .edu-card h3,
-body.light .edu-desc{
+body.light .edu-desc {
   color: #064e3b;
 }
-body.light .edu-score{
+body.light .edu-score {
   color: #065f46;
 }
 /* =====SKILLS SECTION=================== */

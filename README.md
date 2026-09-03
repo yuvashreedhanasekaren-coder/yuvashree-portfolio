@@ -322,7 +322,7 @@ My resume brings together my technical experience, projects, internships, educat
 
 ✨ **Explore my professional journey and discover what I can build.**
 
-[🔗 View My Resume](https://subtle-cheesecake-01abe0.netlify.app/)
+[🔗 View My personal portfolio❤️✨](https://subtle-cheesecake-01abe0.netlify.app/)
 
 ---
 

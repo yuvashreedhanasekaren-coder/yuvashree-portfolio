@@ -292,7 +292,8 @@ The Certificates section presents certifications and learning achievements acros
 
 ### Certificates Preview
 
-<img src="assets/portfolio_outputs/certificates.png" width="700" alt="Certificates">
+<img src="assets/portfolio_outputs/certificates1.png" width="700" alt="Certificates">
+<img src="assets/portfolio_outputs/certificates2.png" width="700" alt="Certificates">
 
 ---
 
@@ -310,6 +311,18 @@ The resume contains my academic background, technical skills, internships, proje
 ### Resume Preview
 
 <img src="assets/portfolio_outputs/resume.png" width="700" alt="Resume">
+
+---
+
+## 💼 My Professional Journey
+
+A closer look at my journey, skills, and the work I’m passionate about.
+
+My resume brings together my technical experience, projects, internships, education, and continuous learning — all in one place.
+
+✨ **Explore my professional journey and discover what I can build.**
+
+[🔗 View My Resume](https://subtle-cheesecake-01abe0.netlify.app/)
 
 ---
 

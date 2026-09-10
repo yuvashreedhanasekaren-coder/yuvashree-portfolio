@@ -345,6 +345,22 @@ The section is designed to make professional communication simple and accessible
 <img src="assets/portfolio_outputs/contact.png" width="700" alt="Contact">
 
 ---
+# 🔻 Footer
+
+The Footer appears at the bottom of every page, giving the portfolio a consistent closing touch.
+
+It includes:
+
+* Copyright with current year
+* Name and tagline
+* "Designed & developed with passion" note
+* Scroll-to-top button
+
+### Footer Preview
+
+<img src="assets/portfolio_outputs/footer.png" width="700" alt="Footer">
+
+---
 
 # 🎯 Portfolio Goals
 

@@ -198,15 +198,21 @@ function filterProjects(category) {
   let projects = document.querySelectorAll(".project-card");
 
   projects.forEach(project => {
-    let categories = project.getAttribute("data-category");
+    let categories = project.getAttribute("data-category").split(" ");
 
-    if (category === "all" || categories.includes(category)) {
+    if (category === "all") {
+      project.style.display = categories.includes("idea") ? "none" : "block";
+    } else if (categories.includes(category)) {
       project.style.display = "block";
     } else {
       project.style.display = "none";
     }
   });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  filterProjects("all");
+});
 
 //  -------------------top button
   // 🔥 ACTIVE FILTER BUTTON FIX

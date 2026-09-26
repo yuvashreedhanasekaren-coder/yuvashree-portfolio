@@ -2113,6 +2113,15 @@ body.light .btn-outline:hover{
   transform: scale(0.92);
 }
 
+.project-subtitle {
+  text-align: center;
+  margin: -55px 0 28px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  opacity: 0.65;
+}
+
 /* 🌿 LIGHT MODE */
 body.light #topBtn{
   background: linear-gradient(135deg,#22c55e,#16a34a);

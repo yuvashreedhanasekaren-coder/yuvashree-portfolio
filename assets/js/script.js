@@ -195,23 +195,48 @@ document.addEventListener('mousemove', e => {
 });
 
 function filterProjects(category) {
-  let projects = document.querySelectorAll(".project-card");
+  const projects = document.querySelectorAll(".project-card");
 
   projects.forEach(project => {
-    let categories = project.getAttribute("data-category").split(" ");
+    const isPortfolio = project.classList.contains("featured");
+    const isLayout = project.classList.contains("layout-project");
+    const isSVG = project.classList.contains("svg-card");
+    const categories = project.getAttribute("data-category").split(" ");
 
     if (category === "all") {
       project.style.display = categories.includes("idea") ? "none" : "block";
-    } else if (categories.includes(category)) {
+    }
+
+    else if (category === "web") {
+      project.style.display =
+        (isPortfolio || isLayout || isSVG) ? "block" : "none";
+    }
+
+    else if (categories.includes(category)) {
       project.style.display = "block";
-    } else {
+    }
+
+    else {
       project.style.display = "none";
     }
   });
 }
 
+// Initial page load
 document.addEventListener("DOMContentLoaded", function () {
-  filterProjects("all");
+  const projects = document.querySelectorAll(".project-card");
+
+  projects.forEach(project => {
+    const isLayout = project.classList.contains("layout-project");
+    const isSVG = project.classList.contains("svg-card");
+    const isIdea = project.getAttribute("data-category").includes("idea");
+
+    if (isLayout || isSVG || isIdea) {
+      project.style.display = "none";
+    } else {
+      project.style.display = "block";
+    }
+  });
 });
 
 //  -------------------top button

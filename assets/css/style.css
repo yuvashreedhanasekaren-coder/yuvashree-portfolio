@@ -1646,6 +1646,21 @@ body.light .footer-copy span{
   overflow: hidden;
 }
 
+.project-card.live::before {
+  content: "LIVE";
+  position: absolute;
+  top: 12px;
+  right: -40px;
+  background: #ff3b3b;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 6px 45px;
+  transform: rotate(45deg);
+  text-align: center;
+  box-shadow: 0 0 10px rgba(255, 59, 59, 0.7);
+}
+
 .project-card.featured::before {
   content: "LIVE";
   position: absolute;

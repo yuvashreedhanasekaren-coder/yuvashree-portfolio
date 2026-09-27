@@ -178,83 +178,39 @@ Projects are organized through technology-based filters such as **AI, Flask, Dja
 
 ### Featured Projects
 
-### 🤖 AI-Powered Real-Time Video Translation & Subtitling
+* 🤖 **AI-Powered Real-Time Video Translation & Subtitling**
+  **Technology:** AI • Speech Recognition • NLP • Video Translation
 
-An AI-based system designed to translate live video content and generate real-time subtitles using speech recognition and Natural Language Processing.
+* ✈️ **Travel Booking Website**
+  **Technology:** HTML • CSS • JavaScript • Web Development • Authentication
 
-**Focus:** AI • Speech Recognition • NLP • Video Translation
+* 🚨 **Smart Accident Monitoring using AI & IoT**
+  **Technology:** AI • IoT • Accident Detection • Emergency Alerts
 
----
+* 👩‍💻 **Personal Portfolio Website**
+  **Technology:** HTML • CSS • JavaScript • Responsive Web Design
 
-### ✈️ Travel Booking Website
+* 👥 **Employee Management System | Django**
+  **Technology:** Python • Django • MySQL • CRUD • Authentication
 
-A responsive travel booking platform featuring authentication, forms, booking flows, and secure user management.
+* 📄 **AI-Powered Resume Screening**
+  **Technology:** AI • NLP • Machine Learning • Resume Analysis
 
-**Focus:** Web Development • Authentication • Forms • Booking System
+* 🎮 **FunQuiz – Django Quiz Game**
+  **Technology:** Python • Django • Authentication • Sessions • Quiz System
 
----
+* ✅ **To-Do List Application | Django**
+  **Technology:** Python • Django • Authentication • Task Management
 
-### 🚨 Smart Accident Monitoring using AI & IoT
+* 🎨 **Responsive Landing Page UI Designs**
+  **Technology:** HTML • CSS • JavaScript • UI/UX • Responsive Design
 
-An AI and IoT-based accident detection system designed to identify accidents and automatically alert emergency services in real time.
+* 🖥️ **SVG and Pure HTML, CSS Designs**
+  **Technology:** SVG • HTML • CSS • Responsive Web Design
 
-**Focus:** Artificial Intelligence • IoT • Accident Detection • Emergency Alerts
+* 🧮 **Calculator**
+  **Technology:** HTML • CSS • JavaScript
 
----
-
-### 👩‍💻 Personal Portfolio Website
-
-A modern responsive portfolio website created to present my projects, skills, education, experience, certifications, and professional profile.
-
-**Focus:** HTML • CSS • JavaScript • Responsive Web Design
-
----
-
-### 👥 Employee Management System | Django
-
-A Django-based employee management application featuring CRUD operations, authentication, and role-based access.
-
-**Focus:** Django • Python • CRUD • Authentication
-
----
-
-### 📄 AI-Powered Resume Screening
-
-An AI-driven resume screening system designed to evaluate and rank candidates using Natural Language Processing and Machine Learning.
-
-**Focus:** AI • NLP • Machine Learning • Resume Analysis
-
----
-
-### 🎮 FunQuiz – Django Quiz Game
-
-A single-player entertainment quiz web application built using Django with authentication, session-based scoring, and category-based gameplay.
-
-**Focus:** Django • Authentication • Sessions • Quiz System
-
----
-
-### ✅ To-Do List Application | Django
-
-A task management application featuring authentication, task status handling, and a clean user interface.
-
-**Focus:** Django • Authentication • Task Management
-
----
-
-### 🎨 Responsive Landing Page UI Designs
-
-A collection of responsive landing page layouts designed using modern UI/UX principles.
-
-**Focus:** UI / UX • Responsive Design • Frontend Development
-
----
-
-### 🖥️ SVG and Pure HTML, CSS Designs
-
-A web design project focused on creating visually rich and responsive interfaces using SVG, HTML, and CSS.
-
-**Focus:** SVG • HTML • CSS • Creative Web Design
 
 ### Project Preview
 

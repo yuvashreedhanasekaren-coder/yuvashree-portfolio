@@ -201,15 +201,26 @@ function filterProjects(category) {
     const isPortfolio = project.classList.contains("featured");
     const isLayout = project.classList.contains("layout-project");
     const isSVG = project.classList.contains("svg-card");
-    const categories = project.getAttribute("data-category").split(" ");
+    const isCalculator = project.classList.contains("calculator-project");
+
+    const categories =
+      (project.getAttribute("data-category") || "").split(" ");
 
     if (category === "all") {
-      project.style.display = categories.includes("idea") ? "none" : "block";
+      project.style.display =
+        categories.includes("idea") ? "none" : "block";
     }
 
     else if (category === "web") {
       project.style.display =
-        (isPortfolio || isLayout || isSVG) ? "block" : "none";
+        (isPortfolio || isLayout || isSVG || isCalculator)
+          ? "block"
+          : "none";
+    }
+
+    else if (category === "idea") {
+      project.style.display =
+        categories.includes("idea") ? "block" : "none";
     }
 
     else if (categories.includes(category)) {
@@ -229,9 +240,12 @@ document.addEventListener("DOMContentLoaded", function () {
   projects.forEach(project => {
     const isLayout = project.classList.contains("layout-project");
     const isSVG = project.classList.contains("svg-card");
-    const isIdea = project.getAttribute("data-category").includes("idea");
+    const isCalculator =
+      project.classList.contains("calculator-project");
+    const isIdea =
+      (project.getAttribute("data-category") || "").includes("idea");
 
-    if (isLayout || isSVG || isIdea) {
+    if (isLayout || isSVG || isCalculator || isIdea) {
       project.style.display = "none";
     } else {
       project.style.display = "block";

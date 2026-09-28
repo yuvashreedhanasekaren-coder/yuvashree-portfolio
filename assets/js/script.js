@@ -206,11 +206,13 @@ function filterProjects(category) {
     const categories =
       (project.getAttribute("data-category") || "").split(" ");
 
+    // ALL
     if (category === "all") {
       project.style.display =
         categories.includes("idea") ? "none" : "block";
     }
 
+    // WEB
     else if (category === "web") {
       project.style.display =
         (isPortfolio || isLayout || isSVG || isCalculator)
@@ -218,11 +220,13 @@ function filterProjects(category) {
           : "none";
     }
 
+    // IDEA
     else if (category === "idea") {
       project.style.display =
         categories.includes("idea") ? "block" : "none";
     }
 
+    // DJANGO / AI / FLASK
     else if (categories.includes(category)) {
       project.style.display = "block";
     }
@@ -238,14 +242,30 @@ document.addEventListener("DOMContentLoaded", function () {
   const projects = document.querySelectorAll(".project-card");
 
   projects.forEach(project => {
-    const isLayout = project.classList.contains("layout-project");
-    const isSVG = project.classList.contains("svg-card");
+    const isLayout =
+      project.classList.contains("layout-project");
+
+    const isSVG =
+      project.classList.contains("svg-card");
+
     const isCalculator =
       project.classList.contains("calculator-project");
-    const isIdea =
-      (project.getAttribute("data-category") || "").includes("idea");
 
-    if (isLayout || isSVG || isCalculator || isIdea) {
+    const isIdea =
+      (project.getAttribute("data-category") || "")
+        .includes("idea");
+
+    const isFunQuiz =
+      project.querySelector("h3")?.textContent.includes("FunQuiz");
+
+    // Hide only on initial page load
+    if (
+      isLayout ||
+      isSVG ||
+      isCalculator ||
+      isIdea ||
+      isFunQuiz
+    ) {
       project.style.display = "none";
     } else {
       project.style.display = "block";

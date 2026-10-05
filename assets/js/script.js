@@ -172,10 +172,6 @@ function openResumeView(){
 function closeResumeView(){
   document.getElementById("resumeViewModal").style.display = "none";
 }
-const navbar = document.querySelector('.navbar');
-hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-});
 let lastScroll = 0;
 window.addEventListener('scroll', () => {
   const currentScroll = window.pageYOffset;
@@ -202,6 +198,7 @@ function filterProjects(category) {
     const isLayout = project.classList.contains("layout-project");
     const isSVG = project.classList.contains("svg-card");
     const isCalculator = project.classList.contains("calculator-project");
+    const isQRGenerator = project.classList.contains("qr-generator-project");
 
     const categories =
       (project.getAttribute("data-category") || "").split(" ");
@@ -213,11 +210,10 @@ function filterProjects(category) {
     }
 
     // WEB
-    else if (category === "web") {
-      project.style.display =
-        (isPortfolio || isLayout || isSVG || isCalculator)
-          ? "block"
-          : "none";
+    else if (category === "web") {project.style.display =
+    (isPortfolio || isLayout || isSVG || isCalculator || isQRGenerator)
+      ? "block"
+      : "none";
     }
 
     // IDEA

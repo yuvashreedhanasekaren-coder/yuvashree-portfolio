@@ -1,67 +1,88 @@
+/* ---------- Reveal on Scroll ---------- */
 const reveals = document.querySelectorAll(".reveal");
-function revealOnScroll(){
+
+function revealOnScroll() {
   reveals.forEach(el => {
-    if(el.getBoundingClientRect().top < window.innerHeight - 100){
+    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
       el.classList.add("active");
     }
   });
 }
+
 window.addEventListener("scroll", revealOnScroll);
 revealOnScroll();
+
+/* ---------- Theme Toggle ---------- */
 const body = document.body;
 const toggleBtn = document.getElementById("themeToggle");
 const savedTheme = localStorage.getItem("theme");
 const theme = savedTheme || "dark";
+
 body.classList.add(theme);
-toggleBtn.textContent = theme === "light" ? "🌞" : "🌙";
-window.onload = () => {
-  if(theme === "dark"){
+
+if (toggleBtn) {
+  toggleBtn.textContent = theme === "light" ? "🌞" : "🌙";
+}
+
+window.addEventListener("load", () => {
+  if (theme === "dark") {
     body.classList.add("start-animate");
   }
-};
-toggleBtn.addEventListener("click", () => {
-  body.classList.remove("start-animate");
-  if(body.classList.contains("dark")){
-    body.classList.replace("dark","light");
-    toggleBtn.textContent = "🌞";
-    localStorage.setItem("theme","light");
-  }else{
-    body.classList.replace("light","dark");
-    toggleBtn.textContent = "🌙";
-    localStorage.setItem("theme","dark");
-    setTimeout(() => {
-      body.classList.add("start-animate");
-    }, 50);
-  }
 });
-// navbar 
-const hamburger = document.querySelector('.hamburger');
-const mobileMenu = document.querySelector('.nav-links:not(.desktop)');
-hamburger.addEventListener('click', () => {
-  mobileMenu.classList.toggle('active');
-});
-const navLinks = document.querySelector('.nav-links');
-hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-});
-document.addEventListener("DOMContentLoaded", () => {
-  const navbar = document.querySelector(".navbar");
-  let lastScrollY = window.pageYOffset;
-  window.addEventListener("scroll", () => {
-    const currentScrollY = window.pageYOffset;
-    if (currentScrollY > lastScrollY && currentScrollY > 80) {
-      navbar.classList.add("hide");
+
+if (toggleBtn) {
+  toggleBtn.addEventListener("click", () => {
+    body.classList.remove("start-animate");
+
+    if (body.classList.contains("dark")) {
+      body.classList.replace("dark", "light");
+      toggleBtn.textContent = "🌞";
+      localStorage.setItem("theme", "light");
+    } else {
+      body.classList.replace("light", "dark");
+      toggleBtn.textContent = "🌙";
+      localStorage.setItem("theme", "dark");
+
+      setTimeout(() => {
+        body.classList.add("start-animate");
+      }, 50);
     }
-    else {
-      navbar.classList.remove("hide");
-    }
-    lastScrollY = currentScrollY;
   });
+}
+
+/* ---------- Mobile Navbar ---------- */
+const hamburger = document.querySelector(".hamburger");
+const mobileMenu = document.querySelector(".nav-links:not(.desktop)");
+
+if (hamburger && mobileMenu) {
+  hamburger.addEventListener("click", () => {
+    mobileMenu.classList.toggle("active");
+  });
+}
+
+/* ---------- Navbar Hide on Scroll ---------- */
+const navbar = document.querySelector(".navbar");
+let lastScrollY = window.pageYOffset;
+
+window.addEventListener("scroll", () => {
+  if (!navbar) return;
+
+  const currentScrollY = window.pageYOffset;
+
+  if (currentScrollY > lastScrollY && currentScrollY > 80) {
+    navbar.classList.add("hide");
+  } else {
+    navbar.classList.remove("hide");
+  }
+
+  lastScrollY = currentScrollY;
 });
-  const makecloudsWorks = [
+
+/* ---------- Makeclouds Works ---------- */
+const makecloudsWorks = [
   {
     img: "assets/images/work4.png",
-    note: "Captured during my experience working with friends at their company, this moment reflects collaborative learning, shared problem-solving, and real-time development exposure.Team collaboration moment during my time at a friend-led company, where I gained hands-on exposure to real-world project workflows, teamwork, and practical development practices."
+    note: "Captured during my experience working with friends at their company, this moment reflects collaborative learning, shared problem-solving, and real-time development exposure. Team collaboration moment during my time at a friend-led company, where I gained hands-on exposure to real-world project workflows, teamwork, and practical development practices."
   },
   {
     img: "assets/images/work2.png",
@@ -85,6 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 ];
 
+/* ---------- RD INFRO Works ---------- */
 const rdinfroWorks = [
   {
     img: "assets/images/python_1.png",
@@ -97,24 +119,24 @@ const rdinfroWorks = [
   {
     img: "assets/images/python_5.png",
     note: "Built a simple yet interactive Python Quiz Game that takes user input, validates answers, calculates scores, and displays percentage results."
-  },
+  }
 ];
 
-/* ---------- Makeclouds ---------- */
+/* ---------- Makeclouds Showcase ---------- */
 let makeIndex = 0;
 
 function openMakeWorks() {
-  document.getElementById("experience").classList.add("hidden");
-  document.getElementById("makeShowcase").classList.remove("hidden");
+  document.getElementById("experience")?.classList.add("hidden");
+  document.getElementById("makeShowcase")?.classList.remove("hidden");
   loadMake();
 }
 
 function loadMake() {
-  document.getElementById("makeImage").src =
-    makecloudsWorks[makeIndex].img;
+  const image = document.getElementById("makeImage");
+  const note = document.getElementById("makeNote");
 
-  document.getElementById("makeNote").innerText =
-    makecloudsWorks[makeIndex].note;
+  if (image) image.src = makecloudsWorks[makeIndex].img;
+  if (note) note.innerText = makecloudsWorks[makeIndex].note;
 }
 
 function nextMake() {
@@ -124,26 +146,25 @@ function nextMake() {
 
 function prevMake() {
   makeIndex =
-    (makeIndex - 1 + makecloudsWorks.length) %
-    makecloudsWorks.length;
+    (makeIndex - 1 + makecloudsWorks.length) % makecloudsWorks.length;
   loadMake();
 }
 
-/* ---------- RD INFRO ---------- */
+/* ---------- RD INFRO Showcase ---------- */
 let rdIndex = 0;
 
 function openRDWorks() {
-  document.getElementById("experience").classList.add("hidden");
-  document.getElementById("rdShowcase").classList.remove("hidden");
+  document.getElementById("experience")?.classList.add("hidden");
+  document.getElementById("rdShowcase")?.classList.remove("hidden");
   loadRD();
 }
 
 function loadRD() {
-  document.getElementById("rdImage").src =
-    rdinfroWorks[rdIndex].img;
+  const image = document.getElementById("rdImage");
+  const note = document.getElementById("rdNote");
 
-  document.getElementById("rdNote").innerText =
-    rdinfroWorks[rdIndex].note;
+  if (image) image.src = rdinfroWorks[rdIndex].img;
+  if (note) note.innerText = rdinfroWorks[rdIndex].note;
 }
 
 function nextRD() {
@@ -152,44 +173,41 @@ function nextRD() {
 }
 
 function prevRD() {
-  rdIndex =
-    (rdIndex - 1 + rdinfroWorks.length) %
-    rdinfroWorks.length;
+  rdIndex = (rdIndex - 1 + rdinfroWorks.length) % rdinfroWorks.length;
   loadRD();
 }
 
-/* ---------- Back Button ---------- */
+/* ---------- Back to Experience ---------- */
 function backToExperience() {
-  document.getElementById("experience").classList.remove("hidden");
-  document.getElementById("makeShowcase").classList.add("hidden");
-  document.getElementById("rdShowcase").classList.add("hidden");
+  document.getElementById("experience")?.classList.remove("hidden");
+  document.getElementById("makeShowcase")?.classList.add("hidden");
+  document.getElementById("rdShowcase")?.classList.add("hidden");
 }
 
-  // /resume
-function openResumeView(){
-  document.getElementById("resumeViewModal").style.display = "flex";
+/* ---------- Resume ---------- */
+function openResumeView() {
+  const modal = document.getElementById("resumeViewModal");
+  if (modal) modal.style.display = "flex";
 }
-function closeResumeView(){
-  document.getElementById("resumeViewModal").style.display = "none";
-}
-let lastScroll = 0;
-window.addEventListener('scroll', () => {
-  const currentScroll = window.pageYOffset;
-  if(currentScroll > lastScroll){
-    navbar.classList.add('hide'); 
-  } else {
-    navbar.classList.remove('hide'); 
-  }
-  lastScroll = currentScroll;
-});
-// profile
-const blob = document.querySelector('.blob');
-document.addEventListener('mousemove', e => {
-  const x = (window.innerWidth / 2 - e.pageX) / 25;
-  const y = (window.innerHeight / 2 - e.pageY) / 25;
-  blob.style.transform = `translate(${x}px, ${y}px)`;
-});
 
+function closeResumeView() {
+  const modal = document.getElementById("resumeViewModal");
+  if (modal) modal.style.display = "none";
+}
+
+/* ---------- Profile Blob ---------- */
+const blob = document.querySelector(".blob");
+
+if (blob) {
+  document.addEventListener("mousemove", e => {
+    const x = (window.innerWidth / 2 - e.pageX) / 25;
+    const y = (window.innerHeight / 2 - e.pageY) / 25;
+
+    blob.style.transform = `translate(${x}px, ${y}px)`;
+  });
+}
+
+/* ---------- Project Filters ---------- */
 function filterProjects(category) {
   const projects = document.querySelectorAll(".project-card");
 
@@ -201,19 +219,20 @@ function filterProjects(category) {
     const isQRGenerator = project.classList.contains("qr-generator-project");
 
     const categories =
-      (project.getAttribute("data-category") || "").split(" ");
+      (project.getAttribute("data-category") || "").split(/\s+/);
 
-    // ALL
+    // ALL: Show all except IDEA projects
     if (category === "all") {
       project.style.display =
         categories.includes("idea") ? "none" : "block";
     }
 
-    // WEB
-    else if (category === "web") {project.style.display =
-    (isPortfolio || isLayout || isSVG || isCalculator || isQRGenerator)
-      ? "block"
-      : "none";
+    // WEB: Show only the designated web projects
+    else if (category === "web") {
+      project.style.display =
+        (isPortfolio || isLayout || isSVG || isCalculator || isQRGenerator)
+          ? "block"
+          : "none";
     }
 
     // IDEA
@@ -222,46 +241,34 @@ function filterProjects(category) {
         categories.includes("idea") ? "block" : "none";
     }
 
-    // DJANGO / AI / FLASK
+    // DJANGO / AI / FLASK and other categories
     else if (categories.includes(category)) {
       project.style.display = "block";
-    }
-
-    else {
+    } else {
       project.style.display = "none";
     }
   });
 }
 
-// Initial page load
-document.addEventListener("DOMContentLoaded", function () {
+/* ---------- Initial Project Visibility ---------- */
+document.addEventListener("DOMContentLoaded", () => {
   const projects = document.querySelectorAll(".project-card");
 
   projects.forEach(project => {
-    const isLayout =
-      project.classList.contains("layout-project");
+    const isLayout = project.classList.contains("layout-project");
+    const isSVG = project.classList.contains("svg-card");
+    const isCalculator = project.classList.contains("calculator-project");
+    const isQRGenerator = project.classList.contains("qr-generator-project");
 
-    const isSVG =
-      project.classList.contains("svg-card");
+    const categories =
+      (project.getAttribute("data-category") || "").split(/\s+/);
 
-    const isCalculator =
-      project.classList.contains("calculator-project");
-
-    const isIdea =
-      (project.getAttribute("data-category") || "")
-        .includes("idea");
-
+    const isIdea = categories.includes("idea");
     const isFunQuiz =
       project.querySelector("h3")?.textContent.includes("FunQuiz");
 
-    // Hide only on initial page load
-    if (
-      isLayout ||
-      isSVG ||
-      isCalculator ||
-      isIdea ||
-      isFunQuiz
-    ) {
+    // Hide these projects only on initial page load
+    if (isLayout || isSVG || isCalculator || isQRGenerator || isIdea || isFunQuiz) {
       project.style.display = "none";
     } else {
       project.style.display = "block";
@@ -269,23 +276,20 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-//  -------------------top button
-  // 🔥 ACTIVE FILTER BUTTON FIX
+/* ---------- Active Filter Button ---------- */
 const buttons = document.querySelectorAll(".project-filters button");
 
 buttons.forEach(btn => {
   btn.addEventListener("click", function () {
-    buttons.forEach(b => b.classList.remove("active"));
-    this.classList.add("active");   // ✅ correct (not event.target)
+    buttons.forEach(button => button.classList.remove("active"));
+    this.classList.add("active");
   });
 });
 
-
-// 🔝 BACK TO TOP BUTTON
+/* ---------- Back to Top ---------- */
 const topBtn = document.getElementById("topBtn");
 
-// scroll to top
-function scrollToTop(){
+function scrollToTop() {
   window.scrollTo({
     top: 0,
     behavior: "smooth"
@@ -293,6 +297,8 @@ function scrollToTop(){
 }
 
 window.addEventListener("scroll", () => {
+  if (!topBtn) return;
+
   if (window.scrollY > 300) {
     topBtn.style.opacity = "1";
     topBtn.style.pointerEvents = "auto";

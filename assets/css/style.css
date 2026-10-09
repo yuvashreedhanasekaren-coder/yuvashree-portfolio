@@ -1661,6 +1661,19 @@ body.light .footer-copy span{
   box-shadow: 0 0 10px rgba(255, 59, 59, 0.7);
 }
 
+.project-status {
+  display: inline-block;
+  padding: 10px 16px;
+  border: 1px solid rgba(255, 193, 7, 0.45);
+  border-radius: 8px;
+  background: rgba(255, 193, 7, 0.12);
+  color: #ffc107;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  cursor: default;
+}
+
 .project-card.featured::before {
   content: "LIVE";
   position: absolute;
